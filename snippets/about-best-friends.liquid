@@ -1,0 +1,38 @@
+{% assign topic_1_header = settings.home_about_best_friends_1_header %}
+{% assign topic_1_subtext = settings.home_about_best_friends_1_subtext %}
+{% assign topic_2_header = settings.home_about_best_friends_2_header %}
+{% assign topic_2_subtext = settings.home_about_best_friends_2_subtext %}
+{% assign topic_3_header = settings.home_about_best_friends_3_header %}
+{% assign topic_3_subtext = settings.home_about_best_friends_3_subtext %}
+
+<div class="about-best-friends">
+  <div class="grid">
+    <div class="grid__item one-third small--one-whole topic">
+      <div class="topic-wrapper">
+        <img src="{{ 'bear.png' | asset_url }}" alt="{{ topic_1_header }}" itemprop="topic">
+        <div class="topic-text">
+          <h3>{{ topic_1_header }}</h3>
+          <p>{{topic_1_subtext}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item one-third small--one-whole topic">
+      <div class="topic-wrapper">
+        <img src="{{ 'hive.png' | asset_url }}" alt="{{ topic_2_header }}" itemprop="topic" style="height: 67px">
+        <div class="topic-text">
+          <h3>{{ topic_2_header }}</h3>
+          <p>{{topic_2_subtext}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item one-third small--one-whole topic">
+      <div class="topic-wrapper">
+        <img src="{{ 'jar.png' | asset_url }}" alt="{{ topic_3_header }}" itemprop="topic">
+        <div class="topic-text">
+          <h3>{{ topic_3_header }}</h3>
+          <p>{{topic_3_subtext}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

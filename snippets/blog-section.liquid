@@ -1,0 +1,55 @@
+<div class="grid homepage-blog-section">
+
+  <div class="section-header text-center">
+    <h1>Latest From the Blog</h1>
+    <hr class="hr--small">
+  </div>
+
+  {% for article in blogs['news'].articles limit:3 %}
+
+    {% if article.content contains "<img" %}
+        {% assign src = article.content | split: 'src="' %}
+        {% assign src = src[1] | split: '"' | first | replace: '//cdn', 'http://cdn'; | replace: 'http:http://';, 'http://'; | remove: 'https:' %}
+    {% endif %}
+
+    <div class="grid__item large--one-third medium--one-third small--one-whole blog-post" data-url="{{article.url}}">
+      <div class="blog-post-image-wrapper" style="background: url('{{src}}'); background-size: cover; background-repeat: no-repeat;">
+        <div class="post-card-content">
+          {% comment %}<img src="{{src}}" />{% endcomment %}
+          <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+          <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+
+          {% comment %}
+            Add a surrounding div with class 'rte' to anything that will come from the rich text editor.
+            Since this is just a listing page, you can either use the excerpt or truncate the full article.
+          {% endcomment %}
+          <div class="rte">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              <p>{{ article.content | strip_html | truncatewords: 35 }}</p>
+            {% endif %}
+          </div>
+
+          {% comment %}
+            Show off meta information like number of comments and tags.
+          {% endcomment %}
+          <ul>
+            {% if blog.comments_enabled? %}
+            <li>
+              <a href="{{ article.url }}#comments">
+                {{ article.comments_count }}
+                {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+
+          <p><a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a></p>
+        </div>
+        <div class="blog-post-transparent-wrap"></div>
+      </div>
+    </div>
+
+  {% endfor %}
+</div>

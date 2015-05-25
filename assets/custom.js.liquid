@@ -1,0 +1,32 @@
+{% comment %} Custom Best Friends JS {% endcomment %}
+
+$(function() {
+
+  $('.instagram').on('willLoadInstagram', function(event, options) {
+    console.log(options);
+  });
+
+  $('.instagram').on('didLoadInstagram', function(event, response) {
+    $.each(response.data, function(i, obj) {
+      if (i < 10) {
+        $('.instagram').append("<div class='grid__item large--one-fifth medium--one-fifth small--one-half'><div class='instagram-wrapper'><a target='_blank' href='" + obj.link + "'><img src='" + obj.images.low_resolution.url + "'/></a></div></div>" );
+      }
+    });
+  });
+
+  $('.blog-post').on('click', function(e) {
+    document.location.href = $(this).data('url');
+  })
+
+  $('.instagram').instagram({
+    hash: 'rawhoney',
+    clientId: ' 14d0e4649d144f0db0bf80b9163ee315'
+  });
+
+  setTimeout(function() {
+    if(!Cookies.get('modal') === true) {
+      $('.md-trigger').click();
+    }
+  }, 5500)
+
+});

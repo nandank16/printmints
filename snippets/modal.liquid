@@ -1,0 +1,24 @@
+<button class="md-trigger" style="visibility:hidden;" data-modal="modal-1">Fade in &amp; Scale</button>
+<div class="md-modal md-effect-1" id="modal-1">
+  <div class="md-content">
+    <div class="grid inner-modal">
+      <div class="grid__item large--one-half modal-left medium--hide small--hide">
+        <div class="modal-image"></div>
+      </div>
+      <div class="grid__item large--one-half modal-right">
+        <h3>Subscribe & Save!</h3>
+        <div>
+          <p>Pop in your email to hear about:</p>
+          <ul>
+            <li><strong>Delicious new recipes</strong> We cook up some incredible things, using honey of course.</li>
+            <li><strong>Honey Products</strong> beebalm, spicy honey, that's just the beginning!</li>
+            <li><strong>Hot Deals</strong> we'll let you know when we run specials and discounts.</li>
+          </ul>
+          {% include 'newsletter' %}
+          <div class="md-close icon icon-x"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="md-overlay"></div>
