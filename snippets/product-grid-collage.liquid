@@ -87,7 +87,7 @@
       {% if is_reverse_row__product %}
         {% assign grid_item_width = 'grid__item--small one-whole reverse' %}
       {% else %}
-        {% assign grid_item_width = 'grid__item--large one-whole medium--two-thirds large--two-thirds' %}
+        {% assign grid_item_width = 'grid__item--large one-whole medium--one-third large--one-third' %}
       {% endif %}
     {% when 1 %}
       {% if is_reverse_row__product %}
@@ -97,7 +97,7 @@
       {% endif %}
     {% when 2 %}
       {% if is_reverse_row__product %}
-        {% assign grid_item_width = 'grid__item--large one-whole medium--two-thirds large--two-thirds reverse clearfix' %}
+        {% assign grid_item_width = 'grid__item--large one-whole medium--one-third large--one-third reverse clearfix' %}
       {% else %}
         {% assign grid_item_width = 'grid__item--small one-whole medium--one-third large--one-third clearfix' %}
       {% endif %}
